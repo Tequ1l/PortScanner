@@ -24,26 +24,26 @@ def port_scanner(target, start_port, end_port):
 
     start_time = datetime.now()
 
-    open_ports= []
+    ports_opening= []
     for port in range(start_port, end_port+1):
         if obj_socket(target, port):
             print(f"\nPort {port} is opening")
-            open_ports.append(port)
+            ports_opening.append(port)
         else: 
             print(f"\nPort {port} is closing")
 
     end_time = datetime.now()
     print(f"\nScan completed in:{end_time - start_time}")
 
-    return open_ports
+    return ports_opening
 
-#Example Usage
+#Usage 
 if __name__ == "__main__":
     target = input("Enter the host or IP")
     start_port = int(input("Enter the starting port"))
     end_port = int(input("Enter the ending port"))
 
-    open_ports = port_scanner(target, start_port, end_port)
-    print(f"\nOpen ports: {open_ports}")
+    ports_opening = port_scanner(target, start_port, end_port)
+    print(f"\nOpen ports: {ports_opening}")
 
 
